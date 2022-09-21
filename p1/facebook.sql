@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 21, 2022 at 08:49 PM
+-- Generation Time: Sep 21, 2022 at 09:05 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -174,8 +174,8 @@ INSERT INTO `utilizador` (`EmailUtilizador`, `NomeUtilizador`, `PaisResidencia`,
 --
 ALTER TABLE `comentario`
   ADD PRIMARY KEY (`ComentarioID`),
-  ADD KEY `UtilizadorComentario` (`UtilizadorComentario`),
-  ADD KEY `PostComment` (`PostComentario`);
+  ADD KEY `PostComment` (`PostComentario`),
+  ADD KEY `UtilizadorComentario` (`UtilizadorComentario`);
 
 --
 -- Indexes for table `grupo`
@@ -219,6 +219,16 @@ ALTER TABLE `utilizador`
   ADD PRIMARY KEY (`UtilizadorID`),
   ADD UNIQUE KEY `email` (`EmailUtilizador`) USING BTREE,
   ADD KEY `PaisResidencia` (`PaisResidencia`) USING BTREE;
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `post`
+--
+ALTER TABLE `post`
+  MODIFY `PostID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
