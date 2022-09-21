@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 14, 2022 at 11:30 PM
+-- Generation Time: Sep 21, 2022 at 12:22 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -54,6 +54,31 @@ INSERT INTO `pais` (`CodigoPais`, `NomePais`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `post`
+--
+
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE `post` (
+  `TextoPost` text NOT NULL,
+  `DataHora` datetime NOT NULL,
+  `PostID` int(11) NOT NULL,
+  `PostAutor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`TextoPost`, `DataHora`, `PostID`, `PostAutor`) VALUES
+('Não podemos faltar à semana IULCOME! Quem vem?', '2022-09-19 17:40:02', 1, 1),
+('As praxes estão aí!', '2022-09-19 17:41:05', 2, 2),
+('Viram as notícias na comunicação social sobre asemana IULCOME?', '2022-09-19 17:41:18', 3, 7),
+('', '2022-09-19 17:41:49', 4, 9),
+('Começaram as aulas de BD!!!', '2022-09-19 17:42:01', 5, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `utilizador`
 --
 
@@ -93,6 +118,13 @@ ALTER TABLE `pais`
   ADD UNIQUE KEY `pais` (`NomePais`);
 
 --
+-- Indexes for table `post`
+--
+ALTER TABLE `post`
+  ADD PRIMARY KEY (`PostID`),
+  ADD KEY `AutoPostAutor` (`PostAutor`);
+
+--
 -- Indexes for table `utilizador`
 --
 ALTER TABLE `utilizador`
@@ -103,6 +135,12 @@ ALTER TABLE `utilizador`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `post`
+--
+ALTER TABLE `post`
+  ADD CONSTRAINT `AutoPostAutor` FOREIGN KEY (`PostAutor`) REFERENCES `utilizador` (`UtilizadorID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `utilizador`
