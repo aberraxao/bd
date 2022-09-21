@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 21, 2022 at 12:22 PM
+-- Generation Time: Sep 21, 2022 at 04:19 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -104,7 +104,8 @@ INSERT INTO `utilizador` (`EmailUtilizador`, `NomeUtilizador`, `PaisResidencia`,
 ('luispedro@iscte.pt', 'Luis Pedro', 'PT', 7),
 ('marcThomas@iscte.pt', 'Marc Thomas', 'GB', 8),
 ('zeMaria@rk.co.uk', 'José Maria', 'GB', 9),
-('pedrito@mail.pt', 'Pedrito', 'PT', 10);
+('pedrito@mail.pt', 'Pedrito', 'PT', 10),
+('utilizador.sem.pais@gmail.com', 'Utilizador sem pais', NULL, 11);
 
 --
 -- Indexes for dumped tables
