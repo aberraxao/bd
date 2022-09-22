@@ -1,0 +1,345 @@
+format 224
+"rede_social"
+  revision 4
+  modified_by 2 "domin"
+
+
+  
+  // class settings
+  default_attribute_visibility private default_relation_visibility private default_operation_visibility public
+  
+  classdiagramsettings draw_all_relations yes hide_attributes no hide_operations no hide_getset_operations no hide_ports no show_members_full_definition no show_members_visibility no show_members_stereotype no show_members_context no show_members_multiplicity no show_members_initialization no show_attribute_modifiers no member_max_width 127 show_parameter_dir yes show_parameter_name yes package_name_in_tab no class_drawing_mode natural drawing_language uml show_context_mode no auto_label_position yes show_relation_modifiers no show_relation_visibility no show_infonote no shadow yes gradient none show_stereotype_properties no end
+  
+  classcompositediagramsettings auto_label_position yes draw_all_relations yes shadow yes gradient none end
+  
+  usecasediagramsettings package_name_in_tab no show_context_mode no auto_label_position yes draw_all_relations yes class_drawing_mode actor shadow yes gradient none show_stereotype_properties no end
+  
+  sequencediagramsettings show_full_operations_definition no show_class_of_operation no write_horizontally yes instances_drawing_mode natural drawing_language uml draw_all_relations yes shadow yes gradient none show_stereotype_properties no show_class_context_mode no show_msg_context_mode no end
+  
+  collaborationdiagramsettings show_full_operations_definition no show_class_of_operation no show_hierarchical_rank no write_horizontally yes instances_drawing_mode natural drawing_language uml package_name_in_tab no show_class_pack_context_mode no show_msg_context_mode no draw_all_relations yes shadow yes gradient none show_stereotype_properties no end
+  
+  objectdiagramsettings write_horizontally yes package_name_in_tab no show_class_pack_context_mode no auto_label_position yes draw_all_relations yes shadow yes gradient none show_stereotype_properties no end
+  
+  objectcompositediagramsettings auto_label_position yes draw_all_relations yes shadow yes gradient none end
+  
+  componentdiagramsettings package_name_in_tab no show_context_mode no auto_label_position yes draw_all_relations yes shadow yes gradient none
+   draw_component_as_icon no show_component_req_prov no show_component_rea no show_stereotype_properties no end
+  
+  deploymentdiagramsettings package_name_in_tab no show_context_mode no write_horizontally yes auto_label_position yes draw_all_relations yes shadow yes gradient none
+   draw_component_as_icon no show_component_req_prov no show_component_rea no show_stereotype_properties no end
+  
+  statediagramsettings package_name_in_tab no show_context_mode no auto_label_position yes write_label_horizontally yes show_trans_definition no draw_all_relations yes shadow yes gradient none
+   show_activities yes region_horizontally yes drawing_language uml show_stereotype_properties no end
+  
+  activitydiagramsettings package_name_in_tab no show_context_mode no show_opaque_action_definition no auto_label_position yes write_label_horizontally no draw_all_relations yes shadow yes gradient none
+   show_infonote yes drawing_language uml show_stereotype_properties no end
+  
+  class_color yellow duration_color transparent continuation_color gray note_color blue fragment_color transparent subject_color transparent usecase_color yellow package_color transparent component_color green artifact_color green deploymentnode_color gray state_color yellow stateaction_color transparent activity_color transparent activityregion_color transparent activitypartition_color transparent activityaction_color transparent parameterpin_color white generalization_color black 
+  dpi 96
+  font_size 8
+  diagram_format A4
+
+  image_root_dir ""
+
+
+  mark_for_import
+  
+  ncouples 12
+  key "gxmi path" value "C:/Users/domin/Documents/02P BD rede_social_BoUML/rede_social.xmi"
+  key "gxmi no model" value "no"
+  key "gxmi gen views" value "no"
+  key "gxmi encoding" value "UTF-8"
+  key "gxmi umlversion" value "23"
+  key "gxmi pk prefix" value "no"
+  key "gxmi vis prefix" value "no"
+  key "gxmi primitive type" value "no"
+  key "gxmi gen extensions" value "yes"
+  key "gxmi gen eclipse" value "no"
+  key "gxmi comment exporter" value "no"
+  key "gxmi linefeed" value "no"
+  classview 128002 "rede_social"
+    
+    classdiagramsettings hide_operations yes show_members_full_definition yes member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 128002 "rede_social"
+      classdiagramsettings draw_all_relations no member_max_width 0 end
+      size A4
+    end
+
+    class 128002 "utilizador"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 128002 "EmailUtilizador"
+	private explicit_type "varchar(100)"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128130 "NomeUtilizador"
+	private explicit_type "varchar(100)"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 128130 // publica
+	relation_ref 128002 // publica
+      end
+
+      classrelation 128386 // likes
+	relation_ref 128130 // likes
+      end
+
+      classrelation 128898 // inserido por
+	relation_ref 128386 // inserido por
+      end
+
+      classrelation 129026 // (membro)
+	relation 128514 ---- name "membro"
+	  a role_name "" multiplicity "*" private
+	    classrelation_ref 129026 // (membro)
+	  b role_name "" multiplicity "*" private
+	    classrelation_ref 129154 // (membro)
+      end
+
+      classrelation 129282 // (dono)
+	relation 128642 ---- name "dono"
+	  a role_name "" multiplicity "*" private
+	    classrelation_ref 129282 // (dono)
+	  b role_name "" multiplicity "1" private
+	    classrelation_ref 129410 // (dono)
+      end
+
+      classrelation 136066 // (reside)
+	relation_ref 135170 // reside
+      end
+    end
+
+    class 128130 "post"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 128386 "DataHora"
+	private explicit_type "datetime"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128514 "TextoPost"
+	private explicit_type "text"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 128002 // (publica)
+	relation 128002 ---- name "publica"
+	  a role_name "" multiplicity "1" private
+	    classrelation_ref 128002 // (publica)
+	  b role_name "" multiplicity "*" private
+	    classrelation_ref 128130 // publica
+      end
+
+      classrelation 128258 // (likes)
+	relation 128130 ---- name "likes"
+	  a role_name "" multiplicity "*" private
+	    classrelation_ref 128258 // (likes)
+	  b role_name "" multiplicity "*" private
+	    classrelation_ref 128386 // likes
+      end
+
+      classrelation 128642 // incide sobre
+	relation_ref 128258 // incide sobre
+      end
+    end
+
+    class 128258 "comentario"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 128642 "DataHora"
+	private explicit_type "datetime"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128770 "TextoComentario"
+	private explicit_type "text"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 128514 // (incide sobre)
+	relation 128258 ---- name "incide sobre"
+	  a role_name "" multiplicity "1" private
+	    classrelation_ref 128514 // (incide sobre)
+	  b role_name "" multiplicity "*" private
+	    classrelation_ref 128642 // incide sobre
+      end
+
+      classrelation 128770 // (inserido por)
+	relation 128386 ---- name "inserido por"
+	  a role_name "" multiplicity "1" private
+	    classrelation_ref 128770 // (inserido por)
+	  b role_name "" multiplicity "*" private
+	    classrelation_ref 128898 // inserido por
+      end
+    end
+
+    class 128386 "grupo"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 128898 "Data"
+	private explicit_type "date"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 129026 "DesignacaoGrupo"
+	private explicit_type "varchar(100)"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 129154 "DescricaoGrupo"
+	private explicit_type "text"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 129154 // (membro)
+	relation_ref 128514 // membro
+      end
+
+      classrelation 129410 // (dono)
+	relation_ref 128642 // dono
+      end
+    end
+
+    class 134914 "Pais"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 135682 "CodigoPais"
+	private explicit_type "char(2)"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 135810 "NomePais"
+	private explicit_type "varchar(50)"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 135938 // (reside)
+	relation 135170 ---- name "reside"
+	  a role_name "" multiplicity "*" private
+	    classrelation_ref 135938 // (reside)
+	  b role_name "" multiplicity "0..1" private
+	    classrelation_ref 136066 // (reside)
+      end
+    end
+  end
+end

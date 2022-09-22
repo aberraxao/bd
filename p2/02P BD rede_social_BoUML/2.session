@@ -1,0 +1,13 @@
+window_sizes 1582 819 320 1256 683 82
+
+diagrams
+  active  classdiagram_ref 128002 // rede_social
+    1275 709 100 A4 0 0
+end
+show_stereotypes
+selected attribute_ref 135810 // NomePais
+open
+  class_ref 128002 // utilizador
+  class_ref 134914 // Pais
+end
+end
