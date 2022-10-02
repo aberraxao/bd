@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 21, 2022 at 09:05 PM
+-- Generation Time: Sep 22, 2022 at 02:40 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -31,12 +31,23 @@ USE `facebook`;
 
 DROP TABLE IF EXISTS `comentario`;
 CREATE TABLE `comentario` (
-  `DataHora` datetime NOT NULL,
+  `DataHora` datetime NOT NULL DEFAULT current_timestamp(),
   `TextoComentario` text DEFAULT NULL,
   `ComentarioID` int(11) NOT NULL,
-  `UtilizadorComentario` int(11) NOT NULL,
+  `UtilizadorComentario` int(11) DEFAULT NULL,
   `PostComentario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comentario`
+--
+
+INSERT INTO `comentario` (`DataHora`, `TextoComentario`, `ComentarioID`, `UtilizadorComentario`, `PostComentario`) VALUES
+('2022-09-22 01:23:03', 'textooooo', 1, 5, 2),
+('2022-09-22 01:23:51', 'iiiiiiiiiiiiiii', 2, 3, 3),
+('2022-09-22 01:24:45', 'uuuuuuuuuu', 3, 3, 3),
+('2022-09-22 01:25:20', 'ppppppppppppp', 4, 10, 1),
+('2022-09-22 01:27:23', 'comentário anónimo', 5, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -46,7 +57,7 @@ CREATE TABLE `comentario` (
 
 DROP TABLE IF EXISTS `grupo`;
 CREATE TABLE `grupo` (
-  `Data` date NOT NULL,
+  `Data` date NOT NULL DEFAULT current_timestamp(),
   `DesignacaoGrupo` varchar(100) NOT NULL,
   `DescricaoGrupo` text NOT NULL,
   `GrupoID` int(11) NOT NULL,
@@ -122,7 +133,7 @@ INSERT INTO `pais` (`CodigoPais`, `NomePais`) VALUES
 DROP TABLE IF EXISTS `post`;
 CREATE TABLE `post` (
   `TextoPost` text DEFAULT NULL,
-  `DataHora` datetime NOT NULL,
+  `DataHora` datetime NOT NULL DEFAULT current_timestamp(),
   `PostID` int(11) NOT NULL,
   `PostAutor` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -134,7 +145,8 @@ CREATE TABLE `post` (
 INSERT INTO `post` (`TextoPost`, `DataHora`, `PostID`, `PostAutor`) VALUES
 ('Não podemos faltar à semana IULCOME! Quem vem?', '2022-09-19 17:40:02', 1, 1),
 ('As praxes estão aí!', '2022-09-19 17:41:05', 2, 2),
-('Viram as notícias na comunicação social sobre asemana IULCOME?', '2022-09-19 17:41:18', 3, 7);
+('Viram as notícias na comunicação social sobre asemana IULCOME?', '2022-09-19 17:41:18', 3, NULL),
+('O Iscte é a melhor escola do país', '2022-09-21 20:29:03', 7, 3);
 
 -- --------------------------------------------------------
 
@@ -157,13 +169,12 @@ CREATE TABLE `utilizador` (
 INSERT INTO `utilizador` (`EmailUtilizador`, `NomeUtilizador`, `PaisResidencia`, `UtilizadorID`) VALUES
 ('sdsads', 'sdsads', 'FR', 1),
 ('ana@iscte.pt', 'Ana Martins', 'PR', 2),
+('marie@gmail.com', 'Marie da Silva', 'FR', 3),
 ('francisco@sapo.pt', 'Francisco Melo', 'PR', 5),
 ('antonio_ferraz@mm.pt', 'Antonio Ferraz', 'PR', 6),
-('luispedro@iscte.pt', 'Luis Pedro', 'PR', 7),
 ('marcThomas@iscte.pt', 'Marc Thomas', 'GB', 8),
 ('pedrito@mail.pt', 'Pedrito', 'PR', 10),
-('diana@gmail.com', 'Diana', 'PR', 11),
-('marie@gmail.com', 'Marie da Silva', 'FR', 33);
+('diana@gmail.com', 'Diana', 'PR', 11);
 
 --
 -- Indexes for dumped tables
@@ -225,10 +236,16 @@ ALTER TABLE `utilizador`
 --
 
 --
+-- AUTO_INCREMENT for table `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `ComentarioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `PostID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `PostID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -239,7 +256,7 @@ ALTER TABLE `post`
 --
 ALTER TABLE `comentario`
   ADD CONSTRAINT `PostComment` FOREIGN KEY (`PostComentario`) REFERENCES `post` (`PostID`),
-  ADD CONSTRAINT `UtilizadorComentario` FOREIGN KEY (`UtilizadorComentario`) REFERENCES `utilizador` (`UtilizadorID`);
+  ADD CONSTRAINT `UtilizadorComentario` FOREIGN KEY (`UtilizadorComentario`) REFERENCES `utilizador` (`UtilizadorID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `grupo`
